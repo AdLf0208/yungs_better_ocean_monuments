@@ -1,0 +1,166 @@
+{
+  "processors": [
+    {
+      "processor_type": "horizon:pick",
+      "block": "minecraft:lime_concrete",
+      "redraw": true,
+      "picks": [
+        {
+          "below": 0.4,
+          "state": {
+            "id": "minecraft:prismarine_slab",
+            "properties": { "type": "top", "waterlogged": "true" }
+          }
+        },
+        {
+          "below": 0.8,
+          "state": {
+            "id": "minecraft:prismarine_slab",
+            "properties": { "type": "bottom", "waterlogged": "true" }
+          }
+        }
+      ],
+      "default": { "state": { "id": "minecraft:air" } }
+    },
+    {
+      "processor_type": "horizon:pick",
+      "block": "minecraft:blue_concrete",
+      "redraw": true,
+      "picks": [
+        {
+          "below": 0.4,
+          "state": {
+            "id": "minecraft:dark_prismarine_slab",
+            "properties": { "type": "top", "waterlogged": "true" }
+          }
+        },
+        {
+          "below": 0.8,
+          "state": {
+            "id": "minecraft:dark_prismarine_slab",
+            "properties": { "type": "bottom", "waterlogged": "true" }
+          }
+        }
+      ],
+      "default": { "state": { "id": "minecraft:water" } }
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:block_match",
+            "block": "minecraft:yellow_stained_glass"
+          },
+          "location_predicate": { "predicate_type": "minecraft:always_true" },
+          "output_state": { "id": "minecraft:gravel" }
+        }
+      ]
+    },
+    {
+      "processor_type": "horizon:pick",
+      "block": "minecraft:oxidized_copper",
+      "redraw": true,
+      "picks": [
+        { "below": 0.1, "state": { "id": "minecraft:exposed_copper" } },
+        { "below": 0.3, "state": { "id": "minecraft:weathered_copper" } }
+      ],
+      "default": { "state": { "id": "minecraft:oxidized_copper" } }
+    },
+    {
+      "processor_type": "horizon:pick",
+      "block": "minecraft:oxidized_cut_copper",
+      "redraw": true,
+      "picks": [
+        { "below": 0.1, "state": { "id": "minecraft:exposed_cut_copper" } },
+        { "below": 0.3, "state": { "id": "minecraft:weathered_cut_copper" } }
+      ],
+      "default": { "state": { "id": "minecraft:oxidized_cut_copper" } }
+    },
+    {
+      "processor_type": "horizon:pick",
+      "block": "minecraft:oxidized_cut_copper_stairs",
+      "redraw": true,
+      "keep_properties": true,
+      "picks": [
+        { "below": 0.1, "state": { "id": "minecraft:exposed_cut_copper_stairs" } },
+        { "below": 0.3, "state": { "id": "minecraft:weathered_cut_copper_stairs" } }
+      ],
+      "default": { "state": { "id": "minecraft:oxidized_cut_copper_stairs" } }
+    },
+    {
+      "processor_type": "horizon:pick",
+      "block": "minecraft:oxidized_cut_copper_slab",
+      "redraw": true,
+      "keep_properties": true,
+      "picks": [
+        { "below": 0.1, "state": { "id": "minecraft:exposed_cut_copper_slab" } },
+        { "below": 0.3, "state": { "id": "minecraft:weathered_cut_copper_slab" } }
+      ],
+      "default": { "state": { "id": "minecraft:oxidized_cut_copper_slab" } }
+    },
+    {
+      "processor_type": "horizon:keep_world_block",
+      "blocks": ["minecraft:purpur_slab", "minecraft:brown_wool"]
+    },
+    { "processor_type": "horizon:flood_air" },
+    { "processor_type": "horizon:waterlog" },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:block_match",
+            "block": "minecraft:red_sandstone_slab"
+          },
+          "location_predicate": { "predicate_type": "minecraft:always_true" },
+          "output_state": {
+            "id": "minecraft:tall_seagrass",
+            "properties": { "half": "lower" }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:block_match",
+            "block": "minecraft:end_stone_brick_slab"
+          },
+          "location_predicate": { "predicate_type": "minecraft:always_true" },
+          "output_state": {
+            "id": "minecraft:tall_seagrass",
+            "properties": { "half": "upper" }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:block_match",
+            "block": "minecraft:brick_slab"
+          },
+          "location_predicate": { "predicate_type": "minecraft:always_true" },
+          "output_state": { "id": "minecraft:seagrass" }
+        }
+      ]
+    },
+    {
+      "processor_type": "horizon:pick",
+      "block": "minecraft:orange_stained_glass",
+      "picks": [{ "below": 0.75, "state": { "id": "minecraft:wet_sponge" } }],
+      "default": { "state": { "id": "minecraft:water" } }
+    },
+    {
+      "processor_type": "horizon:yung_pillar",
+      "target_block": { "id": "minecraft:blue_stained_glass" },
+      "target_block_output": {
+        "entries": [
+          { "probability": 1.0, "blockState": { "id": "minecraft:prismarine_bricks" } }
+        ],
+        "defaultBlockState": { "id": "minecraft:prismarine_bricks" }
+      },
+      "pillar_states": {
+        "entries": [
+          { "probability": 1.0, "blockState": { "id": "minecraft:prismarine_bricks" } }
+        ],
+        "defaultBlockState": { "id": "minecraft:prismarine_bricks" }
+      }
+    }
+  ]
+}
